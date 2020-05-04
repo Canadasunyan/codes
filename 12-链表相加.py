@@ -83,7 +83,7 @@ def addSumv1(a, b):
             p.next = lcur
     printLinkNode(head.next)
 
-# 写法二: 分配存储空间创造链表
+# 写法二: 分配创造链表
 def addSumv2(a, b):
     '''
     type: a: LinkNode
@@ -106,12 +106,12 @@ def addSumv2(a, b):
         bcur = bcur.next
         p = p.next
     # 此时acur, bcur至少有一个指向了None, 而p指针指向第n位:
-    #        a1  - a2 -  a3 -  a4 - a5 - a6 - a7 - a8
-    #                                        acur
+    #        a1 - a2 - a3 - a4 - a5 - a6 - a7 - a8
+    #                            acur
     #        b1 - b2 - b3 - b4 - None
-    #                                       bcur
-    #    head - p1 - p2 - p3 - p4
-    #                                        p
+    #                            bcur
+    # head - v1 - v2 - v3 - v4
+    #                       p
     while acur:
         val = (acur.value + carry) % 10
         p.next = LinkNode(acur.value)
@@ -133,5 +133,7 @@ a = create([5, 5, 4])
 b = create([4, 4, 5])
 addSumv1(a, b)
 addSumv2(a, b)
+
+
 
 
