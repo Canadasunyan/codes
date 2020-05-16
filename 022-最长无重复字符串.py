@@ -23,7 +23,7 @@ def maxLength(string):
         #          |               |
         #          s               5
         # 如果不在字典中则添加到字典, 更新最大值
-        # 只有添加字典时字符串长度才看增加
+        # 只有添加字典时最大长度才可能增加
         else:
             dictionary[string[i]] = i
             if i - start > max_length:
