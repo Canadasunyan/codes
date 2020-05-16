@@ -21,7 +21,7 @@ def maxLength(string):
             dictionary[string[i]] = i
         # eg. a    b   c   d   e   b    e   f
         #          |               |
-        #         s=1             5
+        #         s=1              5
         # 如果不在字典中则添加到字典, 更新最大值
         # 只有添加字典时最大长度才可能增加
         else:
