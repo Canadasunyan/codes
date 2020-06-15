@@ -6,7 +6,7 @@ import numpy as np
 def generate_y(array_length):
     x = [0.1, 0.1, 0.1]
     for i in range(array_length):
-        m = x[-1] * 1.3 + x[-2] * 0.7 + x[-3] * 0.4
+        m = x[-1] * 1.3 + x[-2] * 0.7 + x[-3] * 0.4 + epsilon
         x.append(m)
     print(x)
     return np.array(x)
@@ -35,15 +35,17 @@ def computeGradient(alpha, beta, x, y, lam=0.1):
     grad_beta = np.array([0., 0.])
     length = len(x[0])
     diff_ls, residual = computeResidual(alpha, beta, x, y)
-    for index in range(len(y)-3):
-        for i in range(len(grad_alpha)):
+    # for index in range(len(y)-3):
+        grad_alpha = np.array()
+        # for i in range(len(grad_alpha)):
             # 计alpha1和alpha2梯度
             d = 2 * y[index + i] * diff_ls[index]
             grad_alpha[i] -= d / length + lam * [1, -1][d < 0] / length
-        for j in range(len(x)):
+        # for j in range(len(x)):
             # 计算beta1和beta2梯度
             d = 2 * x[0][index] * diff_ls[index]
             grad_beta[j] -= d / length + lam * [1, -1][d < 0] / length
+        # assign
     return grad_alpha, grad_beta
 
 def GradientDescent(alpha, beta, grad_alpha, grad_beta, learning_rate=0.0001):
@@ -76,5 +78,6 @@ if __name__ == "__main__":
         alpha, beta = GradientDescent(alpha, beta, grad_alpha, grad_beta, learning_rate)
         previous_residual = residual
 
+Lasso
 
 
