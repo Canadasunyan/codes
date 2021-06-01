@@ -1,6 +1,5 @@
 # 重心是指树中的一个结点，如果将这个点删除后，剩余各个连通块中点数的最大值最小，那么这个节点被称为树的重心
 N = 8
-# weight记录每个节点的重力值
 descendant_maxsize = [0] * N
 son = [[] for i in range(N)]
 index = 0
